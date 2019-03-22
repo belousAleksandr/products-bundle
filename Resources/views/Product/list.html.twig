@@ -1,0 +1,15 @@
+{% extends '@BelousProducts/base.html.twig' %}
+{% block body %}
+
+    <table>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.type }}</td>
+            <td><a href="{{ path('product_edit', {'id': product.id}) }}">edit</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+    <a href="{{ path('product_create') }}">{{ 'create' | trans }}</a>
+{% endblock %}

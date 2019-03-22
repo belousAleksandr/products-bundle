@@ -1,0 +1,27 @@
+# This file is the entry point to configure your own HTTP routes.
+# Files in the routes/ subdirectory configure the routes for your dependencies.
+
+product_create:
+    path: /product/create
+    defaults: { _controller: 'Belous\ProductsBundle\Controller\ProductController::create' }
+
+product_edit:
+    path: /product/edit/{id}
+    defaults: { _controller: 'Belous\ProductsBundle\Controller\ProductController::edit' }
+
+product_list:
+    path: /
+    defaults: { _controller: 'Belous\ProductsBundle\Controller\ProductController::list' }
+
+
+product_type_create:
+    path: /product-type/create
+    defaults: { _controller: 'Belous\ProductsBundle\Controller\ProductTypeController::create' }
+
+product_type_edit:
+    path: /product-type/edit/{id}
+    defaults: { _controller: 'Belous\ProductsBundle\Controller\ProductTypeController::edit' }
+
+product_type_list:
+    path: /product-type/list
+    defaults: { _controller: 'Belous\ProductsBundle\Controller\ProductTypeController::list' }
