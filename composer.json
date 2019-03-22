@@ -37,9 +37,6 @@
     "autoload": {
         "psr-4": { "Belous\\ProductsBundle\\": "" }
     },
-    "autoload-dev": {
-        "psr-4": { "": "Tests/DependencyInjection" }
-    },
     "minimum-stability": "stable",
     "extra": {
         "branch-alias": {}
