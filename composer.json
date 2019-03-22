@@ -40,7 +40,7 @@
     "autoload-dev": {
         "psr-4": { "": "Tests/DependencyInjection" }
     },
-    "minimum-stability": "master",
+    "minimum-stability": "stable",
     "extra": {
         "branch-alias": {}
     }
