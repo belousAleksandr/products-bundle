@@ -40,6 +40,8 @@
     "autoload-dev": {
         "psr-4": { "": "Tests/DependencyInjection" }
     },
-    "extra": {}
+    "extra": {
+        "branch-alias": {
+        }
     }
 }
