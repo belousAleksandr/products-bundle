@@ -14,6 +14,10 @@ use Symfony\Component\HttpFoundation\Response;
 class ProductController extends Controller
 {
 
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function create(Request $request): Response
     {
         $form = $this->createForm(ProductType::class);
@@ -37,6 +41,11 @@ class ProductController extends Controller
     }
 
 
+    /**
+     * @param Product $product
+     * @param Request $request
+     * @return Response
+     */
     public function edit(Product $product, Request $request): Response
     {
         $this->denyAccessUnlessGranted('PRODUCT_EDIT', $product);
@@ -53,7 +62,10 @@ class ProductController extends Controller
         ]);
     }
 
-    public function list():Response
+    /**
+     * @return Response
+     */
+    public function list(): Response
     {
         $this->denyAccessUnlessGranted('PRODUCT_LIST');
 

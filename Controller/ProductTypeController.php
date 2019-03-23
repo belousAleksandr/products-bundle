@@ -12,6 +12,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProductTypeController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function create(Request $request): Response
     {
         $this->denyAccessUnlessGranted('PRODUCT_TYPE_CREATE');
@@ -34,7 +38,11 @@ class ProductTypeController extends Controller
         ]);
     }
 
-
+    /**
+     * @param ProductType $productType
+     * @param Request $request
+     * @return Response
+     */
     public function edit(ProductType $productType, Request $request): Response
     {
         $this->denyAccessUnlessGranted('PRODUCT_TYPE_EDIT', $productType);
@@ -52,7 +60,9 @@ class ProductTypeController extends Controller
         ]);
     }
 
-
+    /**
+     * @return Response
+     */
     public function list():Response
     {
         $this->denyAccessUnlessGranted('PRODUCT_TYPE_LIST');
