@@ -27,7 +27,7 @@ class ProductTypeController extends Controller
             return $this->redirectToRoute('product_type_edit', ['id' => $productType->getId()]);
         }
 
-        return $this->render('@BelousProducts/ProductType/edit.html.twig', [
+        return $this->render('@BelousProducts/ProductType/create.html.twig', [
             'form' => $form->createView()
         ]);
     }

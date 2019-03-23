@@ -1,0 +1,11 @@
+{% extends '@BelousProducts/base.html.twig' %}
+{% block body %}
+    <h1>{{ 'product_create' | trans({}, 'BelousProductsBundle') }}</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    <input type="submit" class="btn" value="{{ 'create'| trans({}, 'BelousProductsBundle') }}"/>
+    {{ form_end(form) }}
+
+    <a href="{{ path('product_list') }}">{{ 'return_to_list'| trans({}, 'BelousProductsBundle')}}</a>
+{% endblock %}
