@@ -14,6 +14,8 @@ class ProductTypeController extends Controller
 {
     public function create(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('PRODUCT_TYPE_CREATE');
+
         $form = $this->createForm(ProductTypeType::class);
         $form->handleRequest($request);
 
@@ -35,6 +37,8 @@ class ProductTypeController extends Controller
 
     public function edit(ProductType $productType, Request $request): Response
     {
+        $this->denyAccessUnlessGranted('PRODUCT_TYPE_EDIT', $productType);
+
         $form = $this->createForm(ProductTypeType::class, $productType);
         $form->handleRequest($request);
 
@@ -51,6 +55,8 @@ class ProductTypeController extends Controller
 
     public function list():Response
     {
+        $this->denyAccessUnlessGranted('PRODUCT_TYPE_LIST');
+
         return $this->render('@BelousProducts/ProductType/list.html.twig', [
             'types' => $this->getDoctrine()->getManager()->getRepository(ProductType::class)->findAll()
         ]);

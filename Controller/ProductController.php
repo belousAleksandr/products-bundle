@@ -19,6 +19,8 @@ class ProductController extends Controller
         $form = $this->createForm(ProductType::class);
         $form->handleRequest($request);
 
+        $this->denyAccessUnlessGranted('PRODUCT_CREATE');
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             /** @var Product $productType */
@@ -35,9 +37,10 @@ class ProductController extends Controller
     }
 
 
-    public function edit(Product $productType, Request $request): Response
+    public function edit(Product $product, Request $request): Response
     {
-        $form = $this->createForm(ProductType::class, $productType);
+        $this->denyAccessUnlessGranted('PRODUCT_EDIT', $product);
+        $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -52,6 +55,8 @@ class ProductController extends Controller
 
     public function list():Response
     {
+        $this->denyAccessUnlessGranted('PRODUCT_LIST');
+
         return $this->render('@BelousProducts/Product/list.html.twig', [
             'products' => $this->getDoctrine()->getManager()->getRepository(Product::class)->findAll()
         ]);
