@@ -1,0 +1,14 @@
+edit: Edit
+create: Create
+return_to_list: 'Return to list'
+sums_of_product_prices: 'Sums of product prices'
+name: Name
+action: Action
+product_type: 'Product type'
+price: Price
+products: Products
+product_types: 'Product types'
+product_create: 'Product create'
+product_type_create: 'Product type create'
+product_edit: 'Product edit'
+product_type_edit: 'Product type edit'

@@ -1,14 +1,27 @@
 {% extends '@BelousProducts/base.html.twig' %}
+{% block title %}{{ 'product_types'| trans({}, 'BelousProductsBundle') }}{% endblock %}
 {% block body %}
-
-    <table>
-    {% for type in types %}
+    <h1>{{ block('title') }}</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
         <tr>
-            <td>{{ type.name }}</td>
-            <td><a href="{{ path('product_type_edit', {'id': type.id}) }}">{{ 'edit' | trans }}</a></td>
+            <th>{{ 'name' | trans({}, 'BelousProductsBundle') }}</th>
+            <th>{{ 'sums_of_product_prices' | trans({}, 'BelousProductsBundle') }}</th>
+            <th>{{ 'action' | trans({}, 'BelousProductsBundle') }}</th>
         </tr>
-    {% endfor %}
+        </thead>
+        <tbody>
+        {% for type in types %}
+            <tr>
+                <td>{{ type.name }}</td>
+                <td>{{ type.sums0fProductPrices }}</td>
+                <td>
+                    <a href="{{ path('product_type_edit', {'id': type.id}) }}">{{ 'edit' | trans({}, 'BelousProductsBundle') }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
     </table>
 
-    <a href="{{ path('product_type_create') }}">{{ 'create' | trans }}</a>
+    <a href="{{ path('product_type_create') }}">{{ 'create' | trans({}, 'BelousProductsBundle') }}</a>
 {% endblock %}

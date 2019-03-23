@@ -1,15 +1,26 @@
 {% extends '@BelousProducts/base.html.twig' %}
+{% block title %}{{ 'products'| trans({}, 'BelousProductsBundle') }}{% endblock %}
 {% block body %}
-
-    <table>
-    {% for product in products %}
+    <h1>{{ block('title') }}</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
         <tr>
-            <td>{{ product.name }}</td>
-            <td>{{ product.price }}</td>
-            <td>{{ product.type }}</td>
-            <td><a href="{{ path('product_edit', {'id': product.id}) }}">edit</a></td>
+            <th>{{ 'name' | trans({}, 'BelousProductsBundle') }}</th>
+            <th>{{ 'price' | trans({}, 'BelousProductsBundle') }}</th>
+            <th>{{ 'product_type' | trans({}, 'BelousProductsBundle') }}</th>
+            <th>{{ 'action' | trans({}, 'BelousProductsBundle') }}</th>
         </tr>
-    {% endfor %}
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.type }}</td>
+                <td><a href="{{ path('product_edit', {'id': product.id}) }}">edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
     </table>
-    <a href="{{ path('product_create') }}">{{ 'create' | trans }}</a>
+    <a href="{{ path('product_create') }}">{{ 'create' | trans({}, 'BelousProductsBundle') }}</a>
 {% endblock %}
